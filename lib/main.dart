@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:dart_collections_journey/names.dart';
+
 void main(List<String> args) {
   runTask1();
   runTask2();
@@ -49,6 +51,17 @@ void runTask1() {
 
 void runTask2() {
   printSeperator("Task 2");
+
+  Set<String> uniqueNames1 = ukrainianNames1.toSet();
+  Set<String> uniqueNames2 = ukrainianNames2.toSet();
+  Set<String> unionNames = uniqueNames1.union(uniqueNames2);
+  print("Кількість елементів у ножині: ${unionNames.length}");
+
+  var diff1 = uniqueNames1.difference(uniqueNames2);
+  print(diff1);
+
+  var diff2 = uniqueNames2.difference(uniqueNames1);
+  print(diff2);
 }
 
 void runTask3() {
@@ -57,5 +70,5 @@ void runTask3() {
 
 void printSeperator(String task) {
   String part = List.filled(20, "-").join("");
-  print("${part} ${task} ${part}");
+  print("\n${part} ${task} ${part}\n");
 }
