@@ -1,10 +1,11 @@
 import 'dart:math';
 
 import 'package:dart_collections_journey/names.dart';
+import 'package:word_generator/word_generator.dart';
 
 void main(List<String> args) {
-  runTask1();
-  runTask2();
+  //runTask1();
+  //runTask2();
   runTask3();
 }
 
@@ -66,6 +67,32 @@ void runTask2() {
 
 void runTask3() {
   printSeperator("Task 3");
+
+
+
+final wordGenerator = WordGenerator();
+   
+   List<String> nounsList = wordGenerator.randomNouns(50).toList();
+
+   Map<String, int> nounsMap = {};
+
+    for (var noun in nounsList) {
+      nounsMap[noun] = noun.length;
+    }
+
+
+  Map<String, int> tempNouns = {};
+
+  for (var entry in nounsMap.entries) {
+    if (entry.value % 2 == 0) {
+      tempNouns[entry.key] = entry.value;
+    }
+  }
+
+  for (var key in tempNouns.keys) {
+    print("${key} ");
+  }
+
 }
 
 void printSeperator(String task) {
