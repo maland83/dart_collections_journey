@@ -4,8 +4,8 @@ import 'package:dart_collections_journey/names.dart';
 import 'package:word_generator/word_generator.dart';
 
 void main(List<String> args) {
-  //runTask1();
-  //runTask2();
+  runTask1();
+  runTask2();
   runTask3();
 }
 
