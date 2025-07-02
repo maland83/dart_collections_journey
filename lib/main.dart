@@ -12,16 +12,16 @@ void main(List<String> args) {
 void runTask1() {
   printSeperator("Task 1");
 
-  List<int> numbers = List.generate(100, (el) => Random().nextInt(101));
+  List<int> numbers = List.generate(100, (_) => Random().nextInt(101));
   print(numbers);
-  print("\n65-й елемент: ${numbers[64]}");
+  print('\n65-й елемент: ${numbers[64]}');
 
   // Вставте число 1000000000 на 50-ту позицію списку.
   numbers.insert(51, 1000000000);
 
   // Видаліть зі списку елементи зі значеннями: 24, 45, 66, 88.
 
-  List<int> numbersForRemove =
+  final List<int> numbersForRemove =
       "24, 45, 66, 88".split(",").map<int>((e) {
         return int.tryParse(e) ?? 0;
       }).toList();
@@ -53,9 +53,9 @@ void runTask1() {
 void runTask2() {
   printSeperator("Task 2");
 
-  Set<String> uniqueNames1 = ukrainianNames1.toSet();
-  Set<String> uniqueNames2 = ukrainianNames2.toSet();
-  Set<String> unionNames = uniqueNames1.union(uniqueNames2);
+  final Set<String> uniqueNames1 = ukrainianNames1.toSet();
+  final Set<String> uniqueNames2 = ukrainianNames2.toSet();
+  final Set<String> unionNames = uniqueNames1.union(uniqueNames2);
   print("Кількість елементів у ножині: ${unionNames.length}");
 
   var diff1 = uniqueNames1.difference(uniqueNames2);
@@ -68,20 +68,17 @@ void runTask2() {
 void runTask3() {
   printSeperator("Task 3");
 
+  final wordGenerator = WordGenerator();
 
+  List<String> nounsList = wordGenerator.randomNouns(50).toList();
 
-final wordGenerator = WordGenerator();
-   
-   List<String> nounsList = wordGenerator.randomNouns(50).toList();
+  final Map<String, int> nounsMap = {};
 
-   Map<String, int> nounsMap = {};
+  for (var noun in nounsList) {
+    nounsMap[noun] = noun.length;
+  }
 
-    for (var noun in nounsList) {
-      nounsMap[noun] = noun.length;
-    }
-
-
-  Map<String, int> tempNouns = {};
+  final Map<String, int> tempNouns = {};
 
   for (var entry in nounsMap.entries) {
     if (entry.value % 2 == 0) {
@@ -92,10 +89,9 @@ final wordGenerator = WordGenerator();
   for (var key in tempNouns.keys) {
     print("${key} ");
   }
-
 }
 
 void printSeperator(String task) {
-  String part = List.filled(20, "-").join("");
+  final part = List.filled(20, "-").join("");
   print("\n${part} ${task} ${part}\n");
 }
