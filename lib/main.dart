@@ -10,7 +10,7 @@ void main(List<String> args) {
 }
 
 void runTask1() {
-  printSeperator("Task 1");
+  printSeperator('Task 1');
 
   List<int> numbers = List.generate(100, (_) => Random().nextInt(101));
   print(numbers);
@@ -22,13 +22,13 @@ void runTask1() {
   // Видаліть зі списку елементи зі значеннями: 24, 45, 66, 88.
 
   final List<int> numbersForRemove =
-      "24, 45, 66, 88".split(",").map<int>((e) {
+      '24, 45, 66, 88'.split(',').map<int>((e) {
         return int.tryParse(e) ?? 0;
       }).toList();
 
-  print("\nBefore removing: ${numbers.length}");
+  print('\nBefore removing: ${numbers.length}');
   numbers.removeWhere((item) => numbersForRemove.contains(item));
-  print("After removing: ${numbers.length} \n");
+  print('After removing: ${numbers.length} \n');
 
   int totalSum = 0;
 
@@ -36,7 +36,7 @@ void runTask1() {
     totalSum += numbers[i] % 3 == 0 ? numbers[i] : 0;
   }
   print(
-    "Сума всіх елементів, що діляться на 3 без залишку.: " +
+    'Сума всіх елементів, що діляться на 3 без залишку.: ' +
         totalSum.toString(),
   );
 
@@ -47,16 +47,16 @@ void runTask1() {
     }
   }
   //  лише ті елементи, що діляться на 2 без залишку.
-  print("Довжина списку temp: ${temp.length}");
+  print('Довжина списку temp: ${temp.length}');
 }
 
 void runTask2() {
-  printSeperator("Task 2");
+  printSeperator('Task 2');
 
   final Set<String> uniqueNames1 = ukrainianNames1.toSet();
   final Set<String> uniqueNames2 = ukrainianNames2.toSet();
   final Set<String> unionNames = uniqueNames1.union(uniqueNames2);
-  print("Кількість елементів у ножині: ${unionNames.length}");
+  print('Кількість елементів у ножині: ${unionNames.length}');
 
   var diff1 = uniqueNames1.difference(uniqueNames2);
   print(diff1);
@@ -66,7 +66,7 @@ void runTask2() {
 }
 
 void runTask3() {
-  printSeperator("Task 3");
+  printSeperator('Task 3');
 
   final wordGenerator = WordGenerator();
 
@@ -92,6 +92,6 @@ void runTask3() {
 }
 
 void printSeperator(String task) {
-  final part = List.filled(20, "-").join("");
-  print("\n${part} ${task} ${part}\n");
+  final part = List.filled(20, '-').join('');
+  print('\n${part} ${task} ${part}\n');
 }
